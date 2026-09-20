@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>GDPR readiness checklist for SaaS (2026) — PrivScan</title>
+<meta name="description" content="Article-oriented themes for privacy reviews — decision-support only.">
+<link rel="canonical" href="https://privacyscan.lxsaihub.com/blog/gdpr-readiness-checklist-for-saas-2026.html">
+<style>*{box-sizing:border-box}body{margin:0;font-family:Georgia,Times,serif;color:#0f172a;line-height:1.7;background:#fff}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px 80px}.by{color:#0f766e;font-weight:700;letter-spacing:.02em;text-transform:uppercase;font-size:12px}
+h1{font-size:32px;line-height:1.25;margin:.2em 0 .4em;font-family:system-ui,Segoe UI,sans-serif}h2{font-size:22px;margin:1.6em 0 .5em}
+p{margin:.6em 0}a{color:#0f766e}ul{padding-left:1.2em}
+.cta{display:inline-block;margin-top:1.4em;padding:12px 22px;border-radius:8px;background:#0f766e;color:#fff;text-decoration:none;font-weight:700}
+</style></head>
+<body><div class="wrap">
+<p class="by">by PrivScan (LX AI)</p>
+<h1>GDPR readiness checklist for SaaS</h1>
+<p>PrivScan maps site and data facts to GDPR-oriented readiness themes. It is not a DPIA certificate. Start from lawful basis, retention, and transfer records before tooling.</p>
+<h2>References</h2>
+<ul>
+<li><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj">GDPR (Regulation (EU) 2016/679)</a></li><li><a href="https://edpb.europa.eu/our-work-tools/general-guidance/gdpr-guidelines-recommendations-best-practices_en">EDPB Guidelines</a></li>
+</ul>
+<p>Try the product: <a class="cta" href="https://privacyscan.lxsaihub.com/">PrivScan</a></p>
+<p style="color:#64748b;font-size:13px">2026-09-16 · primary sources only · no fabricated traffic metrics</p>
+</div></body></html>

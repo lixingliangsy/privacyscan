@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "rulesetId": "gdpr@2026-07-19",
+    "source": "Regulation (EU) 2016/679 (GDPR). Curated from official text.",
+    "disclaimer": "Curated decision-support dataset. Not legal advice. Verify against official GDPR text (gdpr-info.eu) before reliance.",
+    "lastCurated": "2026-07-23"
+  },
+  "articles": [
+    { "id": "A5", "title": "Principles of processing", "ref": "Art. 5",
+      "obligations": ["Lawfulness, fairness, transparency", "Purpose limitation", "Data minimisation", "Accuracy", "Storage limitation", "Integrity & confidentiality", "Accountability"] },
+    { "id": "A6", "title": "Lawfulness of processing", "ref": "Art. 6",
+      "obligations": ["Identify a lawful basis (consent / contract / legal obligation / vital interests / public task / legitimate interests)", "Document the chosen basis per purpose"] },
+    { "id": "A7", "title": "Conditions for consent", "ref": "Art. 7",
+      "obligations": ["Freely given, specific, informed, unambiguous", "Granular opt-in (no pre-ticked boxes)", "Easy withdrawal"] },
+    { "id": "A9", "title": "Special categories", "ref": "Art. 9",
+      "obligations": ["Prohibit processing of race/health/etc. unless explicit exception (explicit consent, vital interests, etc.)"] },
+    { "id": "A13", "title": "Information at collection", "ref": "Art. 13",
+      "obligations": ["Identity/contact of controller", "purposes + legal basis", "retention period", "data subject rights"] },
+    { "id": "A14", "title": "Information not obtained from subject", "ref": "Art. 14",
+      "obligations": ["Similar to Art. 13 where data not collected from the subject"] },
+    { "id": "A15", "title": "Right of access", "ref": "Art. 15", "obligations": ["Provide copy of personal data + processing info"] },
+    { "id": "A17", "title": "Right to erasure", "ref": "Art. 17", "obligations": ["Honour erasure where no overriding basis"] },
+    { "id": "A21", "title": "Right to object", "ref": "Art. 21", "obligations": ["Honour objection to legitimate-interest/ direct-marketing processing"] },
+    { "id": "A22", "title": "Automated decision-making", "ref": "Art. 22",
+      "obligations": ["Safeguards for solely automated decisions with legal/significant effect", "Human intervention, contest right"] },
+    { "id": "A32", "title": "Security of processing", "ref": "Art. 32",
+      "obligations": ["Appropriate technical/org measures (encryption, pseudonymisation, resilience)", "Assess appropriateness"] },
+    { "id": "A33", "title": "Breach notification to authority", "ref": "Art. 33",
+      "obligations": ["Notify supervisory authority within 72h where high risk"] },
+    { "id": "A44", "title": "International transfers", "ref": "Art. 44-49",
+      "obligations": ["Ensure adequate protection for transfers outside EEA (adequacy decision / SCCs / BCRs)"] }
+  ],
+  "transfers": {
+    "adequacyDecisions": ["UK", "Switzerland", "Japan", "Canada (commercial)", "New Zealand", "South Korea", "Argentina", "Israel", "Uruguay"],
+    "mechanisms": ["Standard Contractual Clauses (SCCs)", "Binding Corporate Rules (BCRs)", "Art. 46 derogations (explicit consent / contract necessity)"]
+  }
+}

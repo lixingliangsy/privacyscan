@@ -1,0 +1,154 @@
+{
+  "meta": {
+    "rulesetId": "eu-ai-act@2026-07-19",
+    "source": "Regulation (EU) 2024/1689 (AI Act), as amended by the Digital Omnibus (Reg. 2025/...) — curated from EUR-L text.",
+    "disclaimer": "Curated decision-support dataset. Not legal advice. Verify article text and application dates against the official Journal (eur-lex.europa.eu) before reliance. Entries flagged verify:true MUST be checked against primary law.",
+    "curationOwner": "one-person company (R11 vertical AI governance Agent)",
+    "lastCurated": "2026-07-23"
+  },
+  "riskTiers": {
+    "unacceptable": {
+      "ref": "Art. 5",
+      "summary": "Practices prohibited in the EU regardless of context (e.g. social scoring by public authorities, manipulative AI, untargeted scraping for face databases, emotion recognition in workplace/schools with narrow exceptions, real-time remote biometric ID in public spaces with narrow judicial exception).",
+      "effectiveFrom": "2025-02-02"
+    },
+    "high": {
+      "ref": "Art. 6 + Annex III",
+      "summary": "Systems posing significant harm risk (safety, livelihoods, rights). Includes Annex III use cases (biometrics, critical infrastructure, education/vocational, employment/worker management, essential public/private services, law enforcement, migration/asylum/border, justice/ democratic processes) plus safety-component AI in regulated products.",
+      "effectiveFrom": "2027-12-02"
+    },
+    "limited": {
+      "ref": "Art. 50",
+      "summary": "Transparency obligations: disclose to users they interact with AI (chatbots, deepfakes/synthetic media, emotion/intention classification, AI-generated text published on behalf of a person).",
+      "effectiveFrom": "2026-08-02"
+    },
+    "minimal": {
+      "ref": "Recital 165",
+      "summary": "All other AI with negligible risk (spam filters, AI in games, inventory recommendation). No obligations beyond voluntary codes.",
+      "effectiveFrom": "2024-08-01"
+    }
+  },
+  "prohibitedPractices": [
+    { "id": "A5.1", "title": "Subliminal / manipulative techniques causing harm", "ref": "Art. 5(1)(a)" },
+    { "id": "A5.2", "title": "Exploitation of vulnerability (age, disability, social/economic) causing harm", "ref": "Art. 5(1)(b)" },
+    { "id": "A5.3", "title": "Social scoring by public authorities", "ref": "Art. 5(1)(c)" },
+    { "id": "A5.4", "title": "Untargeted scraping of facial images to build face databases", "ref": "Art. 5(1)(d)" },
+    { "id": "A5.5", "title": "Emotion recognition in workplace/schools (narrow medical/security exceptions)", "ref": "Art. 5(1)(f)" },
+    { "id": "A5.6", "title": "Biometric categorisation inferring race/religion/etc. (narrow exceptions)", "ref": "Art. 5(1)(g)" },
+    { "id": "A5.7", "title": "Real-time remote biometric identification in public spaces (narrow law-enforcement judicial exception)", "ref": "Art. 5(1)(h)" }
+  ],
+  "articles": [
+    {
+      "id": "A6", "title": "Classification rules for high-risk", "ref": "Art. 6",
+      "obligations": ["Determine Annex III presence", "Apply Art. 43 conformity assessment if safety-component of regulated product", "Provider obligations under Art. 8-27"],
+      "verify": false
+    },
+    {
+      "id": "A9", "title": "Risk management system", "ref": "Art. 9",
+      "obligations": ["Continuous risk-management throughout lifecycle", "Identify/maintain measures for known/foreseeable risks", "Document in technical documentation"],
+      "verify": false
+    },
+    {
+      "id": "A10", "title": "Data and data governance", "ref": "Art. 10",
+      "obligations": ["Training/validation/test sets relevant, representative, free of errors", "Examine biases", "Appropriate data governance, source examination"],
+      "verify": false
+    },
+    {
+      "id": "A11", "title": "Technical documentation", "ref": "Art. 11",
+      "obligations": ["Draw up before conformity assessment", "Maintain and update", "Contain info in Annex IV"],
+      "verify": false
+    },
+    {
+      "id": "A12", "title": "Record-keeping (logging)", "ref": "Art. 12",
+      "obligations": ["Automatic logging of events during operation", "Capability retained for duration of risk"],
+      "verify": false
+    },
+    {
+      "id": "A13", "title": "Transparency and provision of information", "ref": "Art. 13",
+      "obligations": ["Make clear to deployers they use high-risk AI", "Provide instructions for use (Annex VIII)"],
+      "verify": false
+    },
+    {
+      "id": "A14", "title": "Human oversight", "ref": "Art. 14",
+      "obligations": ["Effective human oversight measures", "Allow natural persons to understand/interpret output", "Interrupt/override capability"],
+      "verify": false
+    },
+    {
+      "id": "A15", "title": "Accuracy, robustness, cybersecurity", "ref": "Art. 15",
+      "obligations": ["Appropriate accuracy/robustness/cybersecurity", "Resilience to errors/attacks", "Anomalies/logged"],
+      "verify": false
+    },
+    {
+      "id": "A16", "title": "Registration in EU database", "ref": "Art. 16/49/71",
+      "obligations": ["Standalone high-risk systems registered in EU database", "Provider + deployer obligations"],
+      "verify": false
+    },
+    {
+      "id": "A17", "title": "Provider obligations (quality mgmt)", "ref": "Art. 17",
+      "obligations": ["Quality management system", "Post-market monitoring system (Art. 72)", "Incident reporting (Art. 73)"],
+      "verify": false
+    },
+    {
+      "id": "A26", "title": "Deployer obligations", "ref": "Art. 26",
+      "obligations": ["Use per instructions", "Assign human oversight", "Monitor + inform provider of risks/incidents", "Do not input profiling data unless permitted"],
+      "verify": false
+    },
+    {
+      "id": "A27", "title": "Obligations of deployers in high-risk employment/education", "ref": "Art. 27",
+      "obligations": ["Inform affected persons/representatives", "Carry out fundamental rights impact assessment (Art. 27(2)) where likely to be used"],
+      "verify": true
+    },
+    {
+      "id": "A50", "title": "Transparency obligations (limited-risk)", "ref": "Art. 50",
+      "obligations": ["Mark AI interaction (chatbot)", "Label deepfakes/synthetic media", "Disclose emotion/intention classification", "Disclose AI-generated text published on behalf of a person"],
+      "verify": false
+    },
+    {
+      "id": "A53", "title": "General-purpose AI (GPAI) obligations", "ref": "Art. 53",
+      "obligations": ["Technical documentation + training-content summary", "Copyright policy + reserves (Art. 53(1)(c))", "EU AI office cooperation"],
+      "verify": false
+    },
+    {
+      "id": "A55", "title": "GPAI with systemic risk", "ref": "Art. 55",
+      "obligations": ["Model evaluation + adversarial testing", "Systemic-risk assessment + mitigation", "Serious incident reporting"],
+      "verify": false
+    }
+  ],
+  "deadlines": [
+    { "id": "D1", "date": "2024-08-01", "obligation": "Entry into force; minimal-risk voluntary codes apply", "ref": "Art. 113" },
+    { "id": "D2", "date": "2025-02-02", "obligation": "Prohibited practices (Art. 5) + AI literacy (Art. 4) apply", "ref": "Art. 113(2)" },
+    { "id": "D3", "date": "2025-08-02", "obligation": "GPAI rules (Art. 51-55), governance, penalties apply (Digital Omnibus adjusted)", "ref": "Art. 113", "verify": true },
+    { "id": "D4", "date": "2026-08-02", "obligation": "Limited-risk transparency (Art. 50); high-risk for products under regulated sector harmonised standards", "ref": "Art. 113(3)" },
+    { "id": "D5", "date": "2027-12-02", "obligation": "Annex III high-risk obligations (most use cases) apply — post Digital Omnibus delay", "ref": "Art. 113(3)", "verify": true },
+    { "id": "D6", "date": "2030-08-02", "obligation": "High-risk obligations for certain public authorities (transitional, Digital Omnibus)", "ref": "Art. 113", "verify": true }
+  ],
+  "memberStates": [
+    { "code": "AT", "name": "Austria", "transposition": "pending", "note": "National competent authority + OMB appointment expected" },
+    { "code": "BE", "name": "Belgium", "transposition": "pending" },
+    { "code": "BG", "name": "Bulgaria", "transposition": "pending" },
+    { "code": "HR", "name": "Croatia", "transposition": "pending" },
+    { "code": "CY", "name": "Cyprus", "transposition": "pending" },
+    { "code": "CZ", "name": "Czechia", "transposition": "pending" },
+    { "code": "DK", "name": "Denmark", "transposition": "pending" },
+    { "code": "EE", "name": "Estonia", "transposition": "pending" },
+    { "code": "FI", "name": "Finland", "transposition": "pending" },
+    { "code": "FR", "name": "France", "transposition": "pending" },
+    { "code": "DE", "name": "Germany", "transposition": "pending" },
+    { "code": "GR", "name": "Greece", "transposition": "pending" },
+    { "code": "HU", "name": "Hungary", "transposition": "pending" },
+    { "code": "IE", "name": "Ireland", "transposition": "pending" },
+    { "code": "IT", "name": "Italy", "transposition": "pending" },
+    { "code": "LV", "name": "Latvia", "transposition": "pending" },
+    { "code": "LT", "name": "Lithuania", "transposition": "pending" },
+    { "code": "LU", "name": "Luxembourg", "transposition": "pending" },
+    { "code": "MT", "name": "Malta", "transposition": "pending" },
+    { "code": "NL", "name": "Netherlands", "transposition": "pending" },
+    { "code": "PL", "name": "Poland", "transposition": "pending" },
+    { "code": "PT", "name": "Portugal", "transposition": "pending" },
+    { "code": "RO", "name": "Romania", "transposition": "pending" },
+    { "code": "SK", "name": "Slovakia", "transposition": "pending" },
+    { "code": "SI", "name": "Slovenia", "transposition": "pending" },
+    { "code": "ES", "name": "Spain", "transposition": "pending" },
+    { "code": "SE", "name": "Sweden", "transposition": "pending" }
+  ]
+}

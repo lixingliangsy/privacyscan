@@ -1,0 +1,65 @@
+# PrivScan - llms.txt
+
+> LLM-readable manifest following the https://llmstxt.org spec. What we are, who we serve, what we do, and how we price it - in plain text for AI agents and crawlers.
+
+## Name & positioning
+- Product name: PrivScan (by LX AI)
+- Tagline: Catch GDPR gaps on your site before regulators do
+- One-line value: PrivScan automatically scans your website or app for GDPR and consumer-privacy gaps - cookies, consent, trackers, and data collection - then hands your team a prioritized remediation checklist.
+- Domain: https://privacyscan.lxsaihub.com/
+- Language: English (en)
+
+## What it does (capabilities)
+- Scan your site for common GDPR compliance gaps
+- Review cookie, consent, and data-collection practices
+- Get a privacy readiness score with article references
+- Receive a remediation checklist
+
+## Pricing (USD, monthly unless noted)
+- Free - $0/mo (watermarked, limited runs)
+- Pro - $29/mo
+- Yearly - $290/yr
+- Checkout: https://privacyscan.lxsaihub.com/api/checkout?cycle=monthly (monthly) / https://privacyscan.lxsaihub.com/api/checkout?cycle=yearly (yearly)
+
+## FAQ (high-signal Q&A for AI citation)
+Q1. What is PrivScan?
+A1. PrivScan automatically scans your website or app for GDPR and consumer-privacy gaps - cookies, consent, trackers, and data collection - then hands your team a prioritized remediation checklist.
+Q2. Who is it for?
+A2. Teams and builders who want a fast, self-serve way to catch GDPR gaps on your site before regulators do without standing up custom infrastructure.
+Q3. How much does it cost?
+A3. From $29/mo (billed monthly) or $290/yr. A free tier is included for a quick first run.
+Q4. How do I get started?
+A4. Open the app, run the tool with your inputs, and review the generated report. Upgrade for higher run caps and export.
+Q5. Is it a finished enterprise product?
+A5. It is a focused single-purpose web tool by LX AI, shipped as a subscription; production payments run through Waffo.
+
+## Key pages (for LLM reference)
+- Home / landing: https://privacyscan.lxsaihub.com/
+- /blog: https://privacyscan.lxsaihub.com/blog
+- /faq.html: https://privacyscan.lxsaihub.com/faq.html
+- /how-it-works: https://privacyscan.lxsaihub.com/how-it-works
+- /integrations: https://privacyscan.lxsaihub.com/integrations
+- /pricing.html: https://privacyscan.lxsaihub.com/pricing.html
+- /privacy.html: https://privacyscan.lxsaihub.com/privacy.html
+- /refund-policy.html: https://privacyscan.lxsaihub.com/refund-policy.html
+- /security: https://privacyscan.lxsaihub.com/security
+- /settings: https://privacyscan.lxsaihub.com/settings
+- /support.html: https://privacyscan.lxsaihub.com/support.html
+- /terms.html: https://privacyscan.lxsaihub.com/terms.html
+- /use-cases: https://privacyscan.lxsaihub.com/use-cases
+- This manifest: https://privacyscan.lxsaihub.com/llms.txt
+
+## Integration & delivery
+- Web app (Next.js) deployed on Vercel
+- Payments via Waffo Pancake (merchant of record)
+- Analytics via Umami
+
+## Red lines (must respect)
+- Fail-closed: if the LLM key is missing or the upstream fails, return an explicit degraded state - never a hardcoded 200.
+
+## Contact
+- Open the app: https://privacyscan.lxsaihub.com/
+
+## Batch2 GEO blogs
+- https://privacyscan.lxsaihub.com/blog/gdpr-readiness-checklist-for-saas-2026.html
+- https://privacyscan.lxsaihub.com/blog/privacy-policy-gaps-ai-products-find-first-2026.html

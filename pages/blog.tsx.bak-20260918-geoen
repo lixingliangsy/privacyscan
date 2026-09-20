@@ -1,0 +1,200 @@
+import React from 'react'
+import Head from 'next/head'
+import { buildFaqJsonLd, buildHowToJsonLd } from '../lib/schema'
+import Layout from '../components/Layout'
+import { PRODUCT } from '../lib/product'
+import { geoPosts } from '../data/geoPosts'
+
+const GDPR_INFO = 'https://gdpr-info.eu/'
+const ICO = 'https://ico.org.uk/'
+const EDPB = 'https://edpb.europa.eu/'
+const CCPA = 'https://oag.ca.gov/privacy/ccpa'
+const NIST = 'https://www.nist.gov/privacy-framework'
+
+const posts = [
+  {
+    slug: 'what-is-pii',
+    title: 'What is PII? Direct vs indirect personal data under GDPR',
+    type: 'Definitional · FAQPage',
+    query: 'what is pii gdpr personal data',
+    body: 'PII is the everyday shorthand for what the GDPR calls "personal data" — any information relating to an identified or identifiable natural person (Art. 4(1)). Direct identifiers (name, account ID) name the person outright; indirect ones (IP, device fingerprint, cookie ID, VIN) single them out when combined. Recital 30 lists online identifiers as personal data; the CJEU (Breyer, C-582/14) held even dynamic IPs qualify where linkage is feasible.',
+    refs: [GDPR_INFO, ICO, EDPB],
+  },
+  {
+    slug: 'gdpr-compliance-guide',
+    title: 'How do you approach gDPR compliance guide for a small site or app?',
+    type: 'Definitional + examples',
+    query: 'gdpr compliance guide small business',
+    body: 'Map every data flow to a lawful basis (Art. 6), write a transparent notice (Arts. 12–14), keep a record of processing (Art. 30), apply security measures (Art. 32), and plan breach notification (Arts. 33–34). Start with a data inventory, then close the gaps that carry the highest penalty exposure — consent and third-party trackers first.',
+    refs: [GDPR_INFO, ICO, EDPB],
+  },
+  {
+    slug: 'cookie-consent-best-practices',
+    title: 'What is Cookie consent best practices (GDPR / ePrivacy)?',
+    type: 'Definitional + examples',
+    query: 'cookie consent best practices gdpr',
+    body: 'Block non-essential tags until the user opts in, offer granular per-purpose choices, avoid pre-ticked boxes, and keep a consent log. ePrivacy and the GDPR require that analytics, advertising, and fingerprinting scripts do not fire before consent. Document each tag\'s purpose and legal basis.',
+    refs: [GDPR_INFO, ICO, EDPB],
+  },
+  {
+    slug: 'data-inventory-best-practices',
+    title: 'What is Data inventory (RoPA) best practices under Art. 30?',
+    type: 'How-to · HowTo',
+    query: 'data inventory gdpr article 30 ropa',
+    body: 'A Record of Processing Activities lists what you collect, why, the lawful basis, who you share it with, and how long you keep it. Build it by walking every form, SDK, and export path. Keep it living — re-audit whenever you add a vendor or a new data field. It is also your fastest breach-readiness check.',
+    refs: [GDPR_INFO, EDPB, ICO],
+  },
+  {
+    slug: 'data-breach-prevention-checklist',
+    title: 'What is Data breach prevention checklist?',
+    type: 'How-to · HowTo',
+    query: 'data breach prevention checklist gdpr',
+    body: 'Encrypt in transit and at rest, enforce least-privilege access, vendor-diligence your SDKs, cap retention, and rehearse your 72-hour Art. 33 notification. The cheapest breach is the one you never have — most SaaS incidents trace to an unpatched dependency or an over-shared dataset.',
+    refs: [GDPR_INFO, ICO, NIST],
+  },
+]
+
+
+const faqs = [
+  {
+    "question": "What is PII under the GDPR?",
+    "answer": "PII is the everyday term for 'personal data' — any information relating to an identified or identifiable natural person (Art. 4(1)). It covers direct identifiers like a name or account ID and indirect ones like an IP address, device fingerprint, cookie ID, or VIN that can single someone out when combined with other data."
+  },
+  {
+    "question": "What is a GDPR compliance guide for a small site?",
+    "answer": "Start with a data inventory, map each data flow to a lawful basis (Art. 6), publish a transparent notice (Arts. 12–14), keep a Record of Processing (Art. 30), apply security measures (Art. 32), and plan 72-hour breach notification (Arts. 33–34). Close consent and third-party-tracker gaps first."
+  },
+  {
+    "question": "What are cookie consent best practices?",
+    "answer": "Block non-essential tags until the user opts in, give granular per-purpose choices, avoid pre-ticked boxes, and keep a consent log. Analytics, advertising, and fingerprinting scripts must not fire before consent under ePrivacy and the GDPR."
+  },
+  {
+    "question": "What is a data inventory (RoPA) under Art. 30?",
+    "answer": "A Record of Processing Activities lists what you collect, why, the lawful basis, recipients, and retention. Build it by walking every form, SDK, and export path, and re-audit whenever you add a vendor or a new data field. It doubles as your breach-readiness check."
+  },
+  {
+    "question": "What is a data breach prevention checklist?",
+    "answer": "Encrypt in transit and at rest, enforce least-privilege access, vendor-diligence third-party SDKs, cap retention, and rehearse your 72-hour Art. 33 notification. Most SaaS incidents trace to an unpatched dependency or an over-shared dataset."
+  },
+  {
+    "question": "Does PrivScan replace professional judgment?",
+    "answer": "No. PrivScan drafts structured output for review. You remain responsible for final decisions."
+  }
+] as { question: string; answer: string }[]
+
+const howToBlocks = [
+  {
+    "name": "GDPR compliance guide for a small site or app",
+    "steps": [
+      {
+        "name": "Overview",
+        "text": "Map every data flow to a lawful basis (Art. 6), write a transparent notice (Arts. 12–14), keep a record of processing (Art. 30), apply security measures (Art. 32), and plan breach notification (Arts. 33–34). Start with a data inventory, then close the gaps that carry the highest penalty exposure — consent and third-party trackers first."
+      }
+    ]
+  },
+  {
+    "name": "Cookie consent best practices (GDPR / ePrivacy)",
+    "steps": [
+      {
+        "name": "Overview",
+        "text": "Block non-essential tags until the user opts in, offer granular per-purpose choices, avoid pre-ticked boxes, and keep a consent log. ePrivacy and the GDPR require that analytics, advertising, and fingerprinting scripts do not fire before consent. Document each tag's purpose and legal basis."
+      }
+    ]
+  },
+  {
+    "name": "Data breach prevention checklist",
+    "steps": [
+      {
+        "name": "Overview",
+        "text": "Encrypt in transit and at rest, enforce least-privilege access, vendor-diligence your SDKs, cap retention, and rehearse your 72-hour Art. 33 notification. The cheapest breach is the one you never have — most SaaS incidents trace to an unpatched dependency or an over-shared dataset."
+      }
+    ]
+  }
+] as { name: string; steps: { name: string; text: string }[] }[]
+
+const NAME = PRODUCT.name
+
+export default function BlogPage() {
+  return (
+    <Layout>
+      <Head>
+        <link rel="canonical" href="https://privacyscan.lxsaihub.com/blog" />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFaqJsonLd(faqs)) }}
+        />
+        {howToBlocks.map((block, i) => (
+          <script
+            key={`howto-${i}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(buildHowToJsonLd(block.name, block.steps)),
+            }}
+          />
+        ))}
+
+        
+        <section className="mb-10">
+          <h2 className="text-xl font-bold text-slate-900">What does this product include at a glance?</h2>
+          <ul className="mt-3 space-y-2 text-sm text-slate-700 list-disc pl-5">
+            <li>Plain-language definition, FAQ, and references for answer engines</li>
+            <li>3 reviewable workflow steps (input → generate → review)</li>
+            <li>Decision-support output — you stay in the loop; no fabricated user counts</li>
+          </ul>
+        </section>
+
+          {posts.map((p, i) => (
+          <script
+            key={`article-${i}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Article",
+                headline: p.title,
+                description: p.body,
+                inLanguage: "en",
+              }),
+            }}
+          />
+        ))}
+
+        <title>{`${PRODUCT.name} — Blog`}</title>
+        <meta name="description" content="Definitional and how-to posts on GDPR, PII, cookie consent, and data-breach prevention — the privacy questions teams ask before they ship a site." />
+      </Head>
+      <div className="max-w-3xl">
+        <div className="text-xs font-bold tracking-widest uppercase text-indigo-600 mb-3">Blog · GEO</div>
+        <h1 className="text-4xl font-extrabold tracking-tight mb-4">Privacy &amp; GDPR, explained</h1>
+        <p className="text-lg text-slate-600 mb-10">Own the definitional queries privacy teams ask before they trust a site.</p>
+
+        <div className="space-y-8">
+          {posts.map((p) => (
+            <article key={p.slug} className="border-b border-slate-200 pb-8">
+              <div className="text-xs font-semibold text-indigo-600 mb-1">{p.type}</div>
+              <h2 className="text-2xl font-bold mb-2 text-slate-900">{p.title}</h2>
+              <p className="text-sm text-slate-600 mb-2"><span className="font-semibold">Target query:</span> {p.query}</p>
+              <p className="text-slate-700 leading-relaxed">{p.body}</p>
+              <p className="text-xs text-slate-400 mt-3">refs: {p.refs.join(' · ')}</p>
+            </article>
+          ))}
+        </div>
+
+        <h2 className="text-2xl font-bold mt-14 mb-2 text-slate-900">Which GEO deep-dives should you read first?</h2>
+        <p className="text-sm text-slate-500 mb-6">Long-form, cited explainers. Each carries 3+ authoritative privacy sources and a decision-support disclaimer.</p>
+        <div className="space-y-5">
+          {geoPosts.map((p) => (
+            <div key={p.slug} className="border-b border-slate-200 pb-5">
+              <h3 className="text-xl font-semibold">
+                <a href={`/blog/${p.slug}`} className="text-indigo-700 hover:underline">{p.title}</a>
+              </h3>
+              <p className="text-sm text-slate-600 mt-1">{p.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <p className="text-xs text-slate-400 mt-8">Publish + syndicate per gtm-launch (IH + GEO indexes). Each post carries 3 authoritative refs.</p>
+      </div>
+    </Layout>
+  )
+}

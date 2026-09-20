@@ -1,0 +1,19 @@
+﻿.vercel
+.env
+.env.local
+.env*.local
+node_modules
+.next
+
+# AI usage quota counters (local)
+.data/
+
+# Superpowers audit 2026-07-18: ensure secrets/local artifacts ignored
+data/*.json
+!.gitkeep
+dev-local*.log
+.vercel
+
+# stale build caches (added 2026-09-12 to prevent accidental commit)
+.next_old/
+.next_old2/

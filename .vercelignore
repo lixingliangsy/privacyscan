@@ -1,0 +1,23 @@
+# 2026-09-20: never publish backup snapshots.
+# Verified with fnmatch against 100 real stray filenames.
+*.bak*
+_bak*
+_snapshots*/**
+_trash*/**
+__pycache__*/**
+
+# merged from .gitignore (20260920-055839) - Vercel stops reading
+# .gitignore once .vercelignore exists
+.vercel
+.env
+.env.local
+.env*.local
+node_modules
+.next
+.data/
+data/*.json
+!.gitkeep
+dev-local*.log
+.vercel
+.next_old/
+.next_old2/

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Agent Security Tools Compared: PrivScan vs AgentRedTeam vs PyRIT vs Garak</title>
+<meta name="description" content="A side-by-side comparison of four agent-security tools - PrivScan, AgentRedTeam, Microsoft PyRIT, and NVIDIA Garak - covering vendor, type, focus, and license.">
+<link rel="canonical" href="https://privacyscan.lxsaihub.com/blog/agent-security-tools-compared.html">
+<style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0f172a;line-height:1.7;background:#fff}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px 80px}.by{color:#6366f1;font-weight:700;letter-spacing:.02em;text-transform:uppercase;font-size:12px}
+h1{font-size:34px;line-height:1.2;margin:.2em 0 .4em}h2{font-size:23px;margin:1.8em 0 .5em;color:#1e1b4b}
+p{margin:.6em 0}a{color:#4f46e5}table{width:100%;border-collapse:collapse;margin:1.2em 0;font-size:14px}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:left;vertical-align:top}th{background:#eef2ff}
+ul{padding-left:1.2em}blockquote{margin:1em 0;padding:.8em 1em;background:#f8fafc;border-left:4px solid #6366f1;color:#475569}
+.cta{display:inline-block;margin-top:1.4em;padding:12px 22px;border-radius:999px;background:#4f46e5;color:#fff;text-decoration:none;font-weight:700}
+</style></head>
+<body><div class="wrap">
+<p class="by">by PrivScan (LX AI)</p>
+<h1>Agent Security Tools Compared: PrivScan vs AgentRedTeam vs PyRIT vs Garak</h1>
+<p>If you are shipping agents, you need a way to test them before they touch production data. Here is how four tools line up. All four are real; pick by where you are in the lifecycle.</p>
+<table>
+<thead><tr><th>Tool</th><th>Vendor</th><th>Type</th><th>Primary focus</th><th>License</th></tr></thead>
+<tbody>
+<tr><td><strong>PrivScan</strong></td><td>LX AI</td><td>Commercial SaaS</td><td>Pre-deploy guardrails: prompt/tool risk rating, input-output filters, EU AI Act mapping</td><td>Proprietary (subscription)</td></tr>
+<tr><td>AgentRedTeam</td><td>LX AI</td><td>Commercial SaaS</td><td>Adversarial red-team / attack simulation against your agent</td><td>Proprietary (subscription)</td></tr>
+<tr><td>PyRIT</td><td>Microsoft</td><td>Open source (Python)</td><td>Risk identification and red-teaming orchestration for generative AI</td><td>MIT</td></tr>
+<tr><td>Garak</td><td>NVIDIA</td><td>Open source</td><td>LLM vulnerability scanning across known probe categories</td><td>Apache-2.0</td></tr>
+</tbody>
+</table>
+<h2>How to choose</h2>
+<ul>
+<li><strong>Building guardrails now</strong> - start with PrivScan for a fast prompt/tool risk read and a cited report.</li>
+<li><strong>Attacking your own agent</strong> - AgentRedTeam or PyRIT run adversarial scenarios you define.</li>
+<li><strong>Scanning a model endpoint</strong> - Garak probes a hosted model across vulnerability categories.</li>
+<li><strong>Open-source only</strong> - PyRIT (MIT) and Garak (Apache-2.0) are both permissively licensed.</li>
+</ul>
+<blockquote>None of these tools give legal advice. The EU AI Act and OWASP mappings are decision-support - confirm obligations against EUR-Lex and your qualified assessor.</blockquote>
+<p>Run your own agent through a guardrail pass: <a class="cta" href="https://privacyscan.lxsaihub.com/">Try PrivScan</a></p>
+<h2>References</h2>
+<ul>
+<li><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj">GDPR (Regulation (EU) 2016/679)</a></li>
+<li><a href="https://edpb.europa.eu/our-work-tools/general-guidance/gdpr-guidelines-recommendations-best-practices_en">EDPB Guidelines</a></li>
+</ul>
+</div></body></html>

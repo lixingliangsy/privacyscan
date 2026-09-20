@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>AI Agent Security Checklist 2026 - PrivScan by LX AI</title>
+<meta name="description" content="A practical 7-point security checklist for teams shipping AI agents in 2026, mapped to the OWASP Top 10 for LLM Applications and the EU AI Act.">
+<link rel="canonical" href="https://privacyscan.lxsaihub.com/blog/ai-agent-security-checklist-2026.html">
+<style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0f172a;line-height:1.7;background:#fff}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px 80px}.by{color:#6366f1;font-weight:700;letter-spacing:.02em;text-transform:uppercase;font-size:12px}
+h1{font-size:34px;line-height:1.2;margin:.2em 0 .4em}h2{font-size:23px;margin:1.8em 0 .5em;color:#1e1b4b}
+p{margin:.6em 0}a{color:#4f46e5}table{width:100%;border-collapse:collapse;margin:1.2em 0;font-size:14px}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:left;vertical-align:top}th{background:#eef2ff}
+ul{padding-left:1.2em}blockquote{margin:1em 0;padding:.8em 1em;background:#f8fafc;border-left:4px solid #6366f1;color:#475569}
+.cta{display:inline-block;margin-top:1.4em;padding:12px 22px;border-radius:999px;background:#4f46e5;color:#fff;text-decoration:none;font-weight:700}
+</style></head>
+<body><div class="wrap">
+<p class="by">by PrivScan (LX AI)</p>
+<h1>AI Agent Security Checklist 2026</h1>
+<p>Agents that can call tools and read secrets are no longer demos - they are production systems. This checklist is the pre-deployment gate we use at LX AI before any agent touches real data. It maps to the <strong>OWASP Top 10 for LLM Applications (2025)</strong> and the <strong>EU AI Act (Regulation (EU) 2024/1689)</strong>.</p>
+
+<h2>1. Inventory every prompt and tool</h2>
+<p>List the system prompt, the tools the agent can call, and the data each tool touches. You cannot guard what you have not enumerated. (OWASP LLM06 - over-reliance; LLM01 - prompt injection surface.)</p>
+
+<h2>2. Guard against prompt injection</h2>
+<p>Treat any external content the agent reads - emails, web pages, tool output - as untrusted. Strip instructions, require structured tool outputs, and keep a deterministic allow-list for sensitive actions. (OWASP LLM01.)</p>
+
+<h2>3. Stop secret leakage</h2>
+<p>Secrets belong in env vars, never in prompts or logs. Scan env files and CI config for leaked keys before deploy, and rotate on hit. (OWASP LLM02 - sensitive information disclosure.)</p>
+
+<h2>4. Require human oversight for high-risk actions</h2>
+<p>Deletes, sends, and payments should be gated. The EU AI Act puts human oversight (Art. 14) at the center of high-risk obligations. (EU AI Act Art. 14.)</p>
+
+<h2>5. Log every run with a runId</h2>
+<p>Every agent run needs a stable runId and a ruleset version so a bad output is traceable to a specific input and policy. This is your audit trail. (EU AI Act Art. 11 - technical documentation.)</p>
+
+<h2>6. Set a fair-use cost guard</h2>
+<p>Cap token spend per run and per day. Unbounded agents turn a bug into a bill. Surface HTTP 429 when the guard trips instead of silently degrading. (OWASP LLM10 - unbounded consumption.)</p>
+
+<h2>7. Keep a versioned ruleset</h2>
+<p>Policy logic should be reviewable in a pull request, not buried in a prompt. Version each ruleset so regressions are diffable. (EU AI Act Art. 9 - risk management.)</p>
+
+<h2>References</h2>
+<ul>
+<li>OWASP Top 10 for LLM Applications (2025) - owasp.org/www-project-top-10-for-large-language-model-applications/</li>
+<li>EU AI Act, Regulation (EU) 2024/1689 - eur-lex.europa.eu</li>
+<li>NIST AI Risk Management Framework (AI RMF 1.0) - nist.gov/itl/ai-risk-management-framework</li>
+</ul>
+<p>Want a fast, self-serve read on your own agent? <a class="cta" href="https://privacyscan.lxsaihub.com/">Try PrivScan</a></p>
+</div></body></html>

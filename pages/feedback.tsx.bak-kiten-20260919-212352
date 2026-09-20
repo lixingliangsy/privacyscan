@@ -1,0 +1,22 @@
+import Head from "next/head";
+import { PRODUCT } from "../lib/product";
+import Layout from "../components/Layout";
+import FeedbackForm from "../components/FeedbackForm";
+
+export default function FeedbackPage() {
+  return (
+    <Layout>
+      <Head>
+        <title>Feedback · {PRODUCT.name}</title>
+        <meta name="description" content={`Submit feedback, suggestions, or issues to ${PRODUCT.name}`} />
+      </Head>
+      <div className="mx-auto w-full max-w-2xl px-4 py-10">
+        <h1 className="text-2xl font-bold text-slate-900">提交反馈</h1>
+        <p className="mt-2 text-slate-600">你的反馈会直接送达我们的团队，帮助我们改进 {PRODUCT.name} 产品。</p>
+        <div className="mt-6">
+          <FeedbackForm />
+        </div>
+      </div>
+    </Layout>
+  );
+}

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# LLM / AI answer-engine indexing
+LLM-Content: https://privacyscan.lxsaihub.com/llms.txt
+Sitemap: https://privacyscan.lxsaihub.com/sitemap.xml

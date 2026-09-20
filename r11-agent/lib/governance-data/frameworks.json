@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "rulesetId": "frameworks@2026-07-19",
+    "source": "NIST AI Risk Management Framework (AI RMF 1.0) and ISO/IEC 42001:2023 (AI management system).",
+    "disclaimer": "Curated mapping for cross-referencing. Decision-support, not certification guidance.",
+    "lastCurated": "2026-07-23"
+  },
+  "nistAiRmf": {
+    "functions": [
+      { "id": "GOVERN", "title": "Govern", "summary": "Policies, processes, structures to manage AI risk" },
+      { "id": "MAP", "title": "Map", "summary": "Contextualise AI risks and benefits" },
+      { "id": "MEASURE", "title": "Measure", "summary": "Quantify/assess AI risks with tools" },
+      { "id": "MANAGE", "title": "Manage", "summary": "Mitigate/monitor AI risks" }
+    ]
+  },
+  "iso42001": {
+    "clauses": [
+      { "id": "C4", "title": "Context of organisation", "ref": "Cl. 4" },
+      { "id": "C5", "title": "Leadership & AI policy", "ref": "Cl. 5" },
+      { "id": "C6", "title": "Planning (risk/opportunity)", "ref": "Cl. 6" },
+      { "id": "C7", "title": "Support (resources, competence)", "ref": "Cl. 7" },
+      { "id": "C8", "title": "Operation (AI system lifecycle)", "ref": "Cl. 8" },
+      { "id": "C9", "title": "Performance evaluation", "ref": "Cl. 9" },
+      { "id": "C10", "title": "Improvement", "ref": "Cl. 10" }
+    ]
+  },
+  "crosswalkToEuAiAct": [
+    { "euAiAct": "Art. 9 (Risk management)", "nist": "MAP + MANAGE", "iso": "C6 + C8" },
+    { "euAiAct": "Art. 11 (Technical documentation)", "nist": "MEASURE", "iso": "C7 + C8" },
+    { "euAiAct": "Art. 14 (Human oversight)", "nist": "GOVERN + MANAGE", "iso": "C5 + C8" },
+    { "euAiAct": "Art. 15 (Accuracy/robustness/cyber)", "nist": "MEASURE + MANAGE", "iso": "C8" },
+    { "euAiAct": "Art. 17 (Quality mgmt + post-market)", "nist": "GOVERN + MANAGE", "iso": "C9 + C10" }
+  ]
+}

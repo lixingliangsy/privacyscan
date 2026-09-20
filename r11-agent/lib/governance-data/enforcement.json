@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "rulesetId": "enforcement@2026-07-19",
+    "source": "Publicly reported GDPR / AI enforcement actions (curated examples for pattern illustration).",
+    "disclaimer": "Illustrative cases only — not exhaustive, amounts may be updated. Decision-support, not legal advice.",
+    "lastCurated": "2026-07-23"
+  },
+  "cases": [
+    {
+      "id": "E1", "authority": "Irish DPC", "entity": "Meta Platforms", "year": 2023,
+      "amountEur": 1200000000, "basis": "Art. 44 (transfers to US without valid mechanism)",
+      "pattern": "International transfer without adequate safeguard", "verify": true
+    },
+    {
+      "id": "E2", "authority": "Luxembourg CNPD", "entity": "Amazon Europe", "year": 2021,
+      "amountEur": 746000000, "basis": "Art. 6 (processing without valid consent/legal basis)",
+      "pattern": "Advertising processing lacking lawful basis", "verify": true
+    },
+    {
+      "id": "E3", "authority": "CNIL (France)", "entity": "Google", "year": 2019,
+      "amountEur": 50000000, "basis": "Art. 13 (incomplete transparency) + Art. 6 (no valid consent)",
+      "pattern": "Insufficient transparency + invalid consent", "verify": true
+    },
+    {
+      "id": "E4", "authority": "Italian Garante", "entity": "OpenAI (ChatGPT)", "year": 2024,
+      "amountEur": 15000000, "basis": "Art. 5/6/13 (lawful basis, transparency, data accuracy)",
+      "pattern": "AI training data + transparency gaps", "verify": true
+    },
+    {
+      "id": "E5", "authority": "Austrian DSB", "entity": "Government (GAFA cookie)", "year": 2022,
+      "amountEur": 0, "basis": "Art. 4(11)/7 (invalid consent — no choice)",
+      "pattern": "Pre-checked consent invalid (landmark)", "verify": false
+    },
+    {
+      "id": "E6", "authority": "Spanish AEPD", "entity": "Various SMEs", "year": 2021,
+      "amountEur": 60000, "basis": "Art. 32 (security breach, no MFA/logging)",
+      "pattern": "Small-business security lapse — shows SMEs are in scope", "verify": false
+    }
+  ]
+}
