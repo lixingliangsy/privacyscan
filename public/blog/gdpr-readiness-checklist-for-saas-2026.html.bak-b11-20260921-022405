@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A GDPR readiness checklist for SaaS teams — PrivScan</title>
+<meta name="description" content="An ordered list of the disclosures, consents and records a SaaS product needs before it processes personal data of people in the EU or EEA.">
+<link rel="canonical" href="https://privacyscan.lxsaihub.com/blog/gdpr-readiness-checklist-for-saas-2026.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A GDPR readiness checklist for SaaS teams">
+<meta property="og:url" content="https://privacyscan.lxsaihub.com/blog/gdpr-readiness-checklist-for-saas-2026.html">
+<meta property="og:site_name" content="PrivScan (LX AI)">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "A GDPR readiness checklist for SaaS teams", "description": "An ordered list of the disclosures, consents and records a SaaS product needs before it processes personal data of people in the EU or EEA.", "inLanguage": "en", "url": "https://privacyscan.lxsaihub.com/blog/gdpr-readiness-checklist-for-saas-2026.html", "datePublished": "2026-09-20", "dateModified": "2026-09-20", "author": {"@type": "Organization", "name": "PrivScan (LX AI)"}, "publisher": {"@type": "Organization", "name": "PrivScan (LX AI)", "url": "https://privacyscan.lxsaihub.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://privacyscan.lxsaihub.com/blog/gdpr-readiness-checklist-for-saas-2026.html"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does passing a scan mean we are GDPR compliant?", "acceptedAnswer": {"@type": "Answer", "text": "No. It means the checks found no gaps at that URL at that time. Compliance depends on your processing, your records and your contracts, which still need human review."}}, {"@type": "Question", "name": "What do we need to run it?", "acceptedAnswer": {"@type": "Answer", "text": "The URL you want scanned, and ideally a short note on how you collect user data. The more context you give, the more precise the checklist."}}, {"@type": "Question", "name": "Does it look at cookies and trackers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Cookie, consent and tracker findings are part of the scan, alongside data-collection review."}}, {"@type": "Question", "name": "How often should we re-run it?", "acceptedAnswer": {"@type": "Answer", "text": "After any material change to tracking, forms, analytics or AI features, and again before a launch into a new market."}}, {"@type": "Question", "name": "Is this legal advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is a decision-support checklist. Have a qualified reviewer confirm the facts and the local requirements that apply to you."}}, {"@type": "Question", "name": "Which regulations does it focus on?", "acceptedAnswer": {"@type": "Answer", "text": "GDPR and consumer-privacy themes. Other regimes have their own disclosure requirements that this scan does not cover."}}]}</script>
+<style>*{box-sizing:border-box}body{margin:0;font-family:Georgia,Times,serif;color:#0f172a;line-height:1.7;background:#fff}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px 80px}.by{color:#0f766e;font-weight:700;letter-spacing:.02em;text-transform:uppercase;font-size:12px}
+h1{font-size:32px;line-height:1.25;margin:.2em 0 .4em;font-family:system-ui,Segoe UI,sans-serif}h2{font-size:22px;margin:1.6em 0 .5em}h3{font-size:17px;margin:1.1em 0 .2em}
+p{margin:.6em 0}a{color:#0f766e}ul,ol{padding-left:1.2em}
+.cta{display:inline-block;margin-top:1.4em;padding:12px 22px;border-radius:8px;background:#0f766e;color:#fff;text-decoration:none;font-weight:700}
+.card{border:1px solid #e2e8f0;border-radius:10px;padding:16px 18px;margin:12px 0}
+.meta{color:#64748b;font-size:13px}nav a{margin-right:1em}
+.tk{background:#f0fdfa;border:1px solid #ccfbf1;border-radius:10px;padding:16px 18px;margin:18px 0}
+.tk p.tkh{font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#0f766e;margin:0 0 8px}
+.tk ul{margin:0;padding-left:1.2em}
+blockquote{margin:1.1em 0;padding:.7em 1em;background:#f8fafc;border-left:4px solid #0f766e;color:#334155;font-style:italic}
+</style></head>
+<body><div class="wrap">
+<p class="by">by PrivScan (LX AI)</p>
+<p class="meta"><a href="https://privacyscan.lxsaihub.com/blog/">Blog</a> · <a href="https://privacyscan.lxsaihub.com/">Home</a></p>
+<h1>A GDPR readiness checklist for SaaS teams</h1>
+<p><strong><em>A GDPR readiness checklist</em> is an ordered list of the disclosures, consents and records a SaaS product must have in place before it processes personal data of people in the EU or EEA. Its value is sequencing: it tells you which gap to close first, not just that gaps exist.</strong></p>
+<div class="tk"><p class="tkh">Key takeaways</p><ul>
+<li>Start with the record of what you collect, why, how long you keep it and who you share it with — every other gap is downstream of that.</li>
+<li>Consent is only valid when it is specific, informed and as easy to withdraw as to give; a banner that loads trackers before the choice is made is not consent.</li>
+<li>PrivScan turns a URL into a prioritised remediation list. It is decision-support, not a legal opinion and not a certification.</li>
+</ul></div>
+<h2>What the checklist covers</h2>
+<ol>
+<li><strong>Purposes and lawful basis.</strong> Name the purpose for each category of personal data and the basis you rely on for it.</li>
+<li><strong>Cookies, consent and trackers.</strong> Confirm nothing fires before the visitor has actually chosen.</li>
+<li><strong>Data-collection surfaces.</strong> Signup forms, support widgets, analytics and AI features all collect — each needs to appear in the notice.</li>
+<li><strong>Recipients and transfers.</strong> Processors, sub-processors and any transfer outside the EEA belong in the disclosure.</li>
+<li><strong>Retention.</strong> State how long you keep each category, or the criteria used to decide.</li>
+<li><strong>Data-subject requests.</strong> There must be a real path for access, correction, deletion and objection.</li>
+<li><strong>Breach process.</strong> Who is told, by whom, and how quickly internally — before an incident, not during one.</li>
+</ol>
+<h2>Where PrivScan fits</h2>
+<p>Enter a URL and PrivScan scans the site or app for GDPR and consumer-privacy gaps — cookies, consent, trackers and data collection — then returns a prioritised remediation checklist your team can work through. The output is deliberately plain: a list of gaps, what each one relates to, and the order in which to close them.</p>
+<h2>What it does not do</h2>
+<p>It does not certify compliance, it does not replace a qualified reviewer, and it does not tell you what your internal records should say. A clean scan means no gaps were detected by these checks — not that your processing is lawful.</p>
+<h2>Frequently asked questions</h2>
+<h3>Does passing a scan mean we are GDPR compliant?</h3>
+<p>No. It means the checks found no gaps at that URL at that time. Compliance depends on your processing, your records and your contracts, which still need human review.</p>
+<h3>What do we need to run it?</h3>
+<p>The URL you want scanned, and ideally a short note on how you collect user data. The more context you give, the more precise the checklist.</p>
+<h3>Does it look at cookies and trackers?</h3>
+<p>Yes. Cookie, consent and tracker findings are part of the scan, alongside data-collection review.</p>
+<h3>How often should we re-run it?</h3>
+<p>After any material change to tracking, forms, analytics or AI features, and again before a launch into a new market.</p>
+<h3>Is this legal advice?</h3>
+<p>No. It is a decision-support checklist. Have a qualified reviewer confirm the facts and the local requirements that apply to you.</p>
+<h3>Which regulations does it focus on?</h3>
+<p>GDPR and consumer-privacy themes. Other regimes have their own disclosure requirements that this scan does not cover.</p>
+<h2>References</h2><ul>
+<li><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" rel="nofollow noopener" target="_blank">EUR-Lex — Regulation (EU) 2016/679 (GDPR)</a></li>
+<li><a href="https://edpb.europa.eu/our-work-tools/general-guidance/gdpr-guidelines-recommendations-best-practices_en" rel="nofollow noopener" target="_blank">European Data Protection Board — guidelines and recommendations</a></li>
+</ul>
+<p>Try the product: <a class="cta" href="https://privacyscan.lxsaihub.com/">PrivScan</a></p>
+<p class="meta">2026-09-20 · primary sources only · no fabricated traffic metrics · decision-support only</p>
+</div>
+<section class="related" aria-label="Related articles">
+  <h2>Related articles</h2>
+  <ul>
+        <li><a href="/blog/privacy-policy-gaps-ai-products-find-first-2026.html">Privacy policy gaps AI products usually find first</a></li>
+          <li><a href="https://lxsaihub.com/blog/topic-matrix.html">Explore the full AI micro-SaaS topic matrix &#8594;</a></li>
+</ul>
+</section>
+</body></html>

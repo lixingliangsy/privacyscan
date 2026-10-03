@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react"
+import { useT } from "../lib/i18n/provider";
+import { PRODUCT } from "../lib/product";
 
 interface Citation {
   id: string;
@@ -31,6 +33,22 @@ interface ChatWidgetProps {
 const DEFAULT_BRAND = "#2563EB";
 const DEFAULT_ORANGE = "#EA580C";
 
+// Product-aware quick replies: real FAQ questions from the product's own config.
+const SUGGESTIONS: string[] = (() => {
+  try {
+    const p = PRODUCT as any;
+    const fq = Array.isArray(p?.geoFaq)
+      ? p.geoFaq.map((x: any) => String(x?.q || "").trim()).filter(Boolean)
+      : [];
+    if (fq.length >= 3) return fq.slice(0, 3);
+    const qa = Array.isArray(p?.geoQuickAnswer)
+      ? p.geoQuickAnswer.filter((x: unknown) => typeof x === "string" && x.trim())
+      : [];
+    if (qa.length >= 3) return qa.slice(0, 3);
+  } catch {}
+  return ["What does this tool do?", "How much does it cost?", "Is there a free plan?"];
+})();
+
 export default function ChatWidget({
   embed = false,
   productName = "Support",
@@ -39,8 +57,9 @@ export default function ChatWidget({
   sessionKeyPrefix = "support",
   brandColor = DEFAULT_BRAND,
 }: ChatWidgetProps) {
+  const { t } = useT();
   const headerTitle = title || `${productName} AI Assistant`;
-  const defaultGreeting = `Hi, I'm ${productName}'s AI assistant. Ask me about the product, pricing, payments, your account, or the market-access scan — and type "human" if you'd like to talk to a person.`;
+  const defaultGreeting = `Hi, I'm ${productName}'s AI assistant. Ask me about features, pricing, payments, or your account — and type "human" if you'd like to talk to a person.`;
   const SESSION_KEY = `${sessionKeyPrefix}_chat_session`;
 
   const [open, setOpen] = useState(embed);
@@ -73,9 +92,10 @@ export default function ChatWidget({
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight });
   }, [messages, loading]);
 
-  async function send() {
-    const text = input.trim();
+  async function send(textArg?: string) {
+    const text = (textArg ?? input).trim();
     if (!text || loading) return;
+    try { (window as any).umami?.track("aihelp-question", { slug: (PRODUCT as any)?.slug || "", q: text.slice(0, 80) }); } catch {}
     const userMsg: ChatMsg = { role: "user", text };
     setMessages((m) => [...m, userMsg]);
     setInput("");
@@ -158,7 +178,7 @@ export default function ChatWidget({
           <button
             onClick={() => setOpen(false)}
             style={{ marginLeft: "auto", background: "transparent", border: 0, color: "#fff", fontSize: 18, cursor: "pointer", lineHeight: 1 }}
-            aria-label="Close"
+            aria-label={t("chat.closeAria")}
           >
             ×
           </button>
@@ -206,6 +226,19 @@ export default function ChatWidget({
         {loading && <div style={{ fontSize: 13, color: "#64748b" }}>Assistant is typing…</div>}
       </div>
 
+      {!loading && messages.length <= 1 && (
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, padding: "10px 16px", borderTop: "1px solid #e2e8f0", background: "#fff" }}>
+          {SUGGESTIONS.map((s) => (
+            <button
+              key={s}
+              onClick={() => { try { (window as any).umami?.track("aihelp-chip", { slug: (PRODUCT as any)?.slug || "", q: s.slice(0, 80) }); } catch {} send(s); }}
+              style={{ fontSize: 12, border: "1px solid #cbd5e1", background: "#f8fafc", color: "#0f172a", borderRadius: 999, padding: "5px 10px", cursor: "pointer" }}
+            >
+              {s}
+            </button>
+          ))}
+        </div>
+      )}
       <div style={{ display: "flex", gap: 8, padding: 12, borderTop: "1px solid #e2e8f0", background: "#fff" }}>
         <textarea
           value={input}
@@ -216,11 +249,11 @@ export default function ChatWidget({
           style={{ flex: 1, resize: "none", border: "1px solid #cbd5e1", borderRadius: 8, padding: "8px 10px", fontSize: 14, fontFamily: "inherit" }}
         />
         <button
-          onClick={send}
+          onClick={() => send()}
           disabled={loading}
           style={{ background: DEFAULT_ORANGE, color: "#fff", border: 0, borderRadius: 8, padding: "0 16px", fontWeight: 600, cursor: loading ? "not-allowed" : "pointer" }}
         >
-          Send
+          {t('chat.send')}
         </button>
       </div>
     </div>
@@ -233,26 +266,32 @@ export default function ChatWidget({
       {open && (
         <div style={{ position: "fixed", right: 20, bottom: 88, zIndex: 9999 }}>{panel}</div>
       )}
-      <button
+            <button
         onClick={() => setOpen((o) => !o)}
         aria-label="Open AI assistant"
+        title="Ask our AI assistant"
         style={{
           position: "fixed",
           right: 20,
           bottom: 20,
           zIndex: 9999,
-          width: 56,
-          height: 56,
-          borderRadius: "50%",
+          height: 52,
+          padding: "0 20px",
+          borderRadius: 999,
           background: brandColor,
           color: "#fff",
           border: 0,
-          fontSize: 24,
+          fontSize: 15,
+          fontWeight: 600,
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
           cursor: "pointer",
           boxShadow: "0 8px 24px rgba(37,99,235,.4)",
         }}
       >
-        💬
+        <span aria-hidden="true" style={{ fontSize: 20, lineHeight: 1 }}>💬</span>
+        AI Help
       </button>
     </>
   );

@@ -68,16 +68,23 @@ function parsePlan(raw: string): AiPlan | null {
  * Client cannot forge without the server secret.
  */
 function verifySignedEntitlement(
-  req?: { headers?: Record<string, string | string[] | undefined> }
+  req?: { headers?: Record<string, string | string[] | undefined>; cookies?: Record<string, string | undefined> }
 ): AiPlan | null {
   const secret = process.env.AI_ENTITLEMENT_SECRET
-  if (!secret || !req?.headers) return null
-  const h = req.headers
-  const rawVal = h['x-ai-entitlement'] ?? h['X-Ai-Entitlement']
-  const raw = String(Array.isArray(rawVal) ? rawVal[0] : rawVal || '')
+  if (!secret || !req) return null
+  let raw = ''
+  if (req.headers) {
+    const h = req.headers
+    const rawVal = h['x-ai-entitlement'] ?? h['X-Ai-Entitlement']
+    raw = String(Array.isArray(rawVal) ? rawVal[0] : rawVal || '')
+  }
+  // owner-unlock 签发的签名 cookie（浏览器会话），与 x-ai-entitlement 头二选一
+  if (!raw && req.cookies) {
+    raw = String(req.cookies['ai_entitlement'] || '')
+  }
   const parts = raw.split(':')
   if (parts.length !== 3) return null
-  const [planRaw, expStr, sig] = parts
+  const [planRaw, expStr, sig] = parts as [string, string, string]
   const plan = parsePlan(planRaw)
   if (!plan) return null
   const exp = Number(expStr)
@@ -170,7 +177,32 @@ export function defaultModel(): string {
 // Primary model (OPENAI_MODEL) with automatic fail-over to BACKUP_MODEL on
 // 5xx / 429 / network error / empty completion. 4xx (bad request / auth) fails fast.
 // Does NOT depend on defaultModel() so it compiles in every product's aiGateway.
-export const BACKUP_MODEL = process.env.OPENAI_MODEL_FALLBACK || 'nemotron-3.5-lightning-30b-a3b'
+export const BACKUP_MODEL = process.env.OPENAI_MODEL_FALLBACK || 'llama-3.1-8b-instant'
+
+// ---- multi-provider fallback (MULTI_PROVIDER_v1, 2026-09-21) ----
+// Set LLM_PROVIDERS='[{"base":"https://api.siliconflow.cn/v1","key":"sk-..","model":"Qwen/Qwen3-8B"}, ...]'
+// to spread load across vendors. Providers are tried in order BEFORE the legacy
+// NVIDIA path; 429 / 5xx / network error / empty completion -> next provider.
+// 4xx (bad request / auth) still fails fast. Unset LLM_PROVIDERS = unchanged behaviour.
+export type LlmProvider = { base: string; key?: string; keyEnv?: string; model: string }
+
+function llmPoolFromEnv(): LlmProvider[] {
+  const raw = process.env.LLM_PROVIDERS
+  if (!raw) return []
+  try {
+    const arr = JSON.parse(raw) as LlmProvider[]
+    if (!Array.isArray(arr)) return []
+    return arr
+      .filter((p): p is LlmProvider => !!p && !!p.base && !!p.model)
+      .map((p) => {
+        const resolvedKey = p.key || (p.keyEnv ? (process.env[p.keyEnv] || '') : '')
+        return { base: p.base, key: resolvedKey, model: p.model }
+      })
+      .filter((p) => !!p.key)
+  } catch (e) {
+    return []
+  }
+}
 
 export async function chatWithFallback(
   apiKey: string,
@@ -178,18 +210,28 @@ export async function chatWithFallback(
   messages: { role: string; content: string }[],
   opts: { model?: string; temperature?: number; maxTokens?: number; backupModel?: string } = {},
 ): Promise<string> {
-  const primary = opts.model || process.env.OPENAI_MODEL || 'nvidia/nemotron-3-super-120b-a12b'
+  const primary = opts.model || process.env.OPENAI_MODEL || 'llama-3.3-70b-versatile'
   const backup = opts.backupModel || BACKUP_MODEL
-  const order = Array.from(new Set([primary, backup].filter(Boolean)))
+  const legacyKey = apiKey || process.env.OPENAI_API_KEY || ''
+  const legacyBase = base || process.env.OPENAI_BASE_URL || 'https://api.groq.com/openai/v1'
+  const legacy: LlmProvider[] = legacyKey
+    ? [
+        { base: legacyBase, key: legacyKey, model: primary },
+        { base: legacyBase, key: legacyKey, model: backup },
+      ]
+    : []
+  const pool = llmPoolFromEnv()
+  const order: LlmProvider[] = pool.length ? pool.concat(legacy) : legacy
+  if (!order.length) throw new Error('No LLM provider configured')
   let lastErr = 'unknown'
   for (let i = 0; i < order.length; i++) {
-    const m = order[i]
+    const p = order[i]
     try {
-      const r = await fetch(`${base}/chat/completions`, {
+      const r = await fetch(`${p.base}/chat/completions`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${p.key}` },
         body: JSON.stringify({
-          model: m,
+          model: p.model,
           messages,
           temperature: opts.temperature ?? 0.7,
           max_tokens: opts.maxTokens ?? 1000,
@@ -198,7 +240,7 @@ export async function chatWithFallback(
       if (!r.ok) {
         const t = await r.text().catch(() => '')
         if (r.status >= 500 || r.status === 429) {
-          lastErr = `model ${m} HTTP ${r.status}`
+          lastErr = `provider ${p.base} model ${p.model} HTTP ${r.status}`
           if (i < order.length - 1) continue
           throw new Error('AI request failed: ' + lastErr.slice(0, 160))
         }
@@ -207,7 +249,7 @@ export async function chatWithFallback(
       const data = await r.json()
       const text = data?.choices?.[0]?.message?.content || ''
       if (!text.trim()) {
-        lastErr = `model ${m} empty response`
+        lastErr = `provider ${p.base} model ${p.model} empty response`
         if (i < order.length - 1) continue
         throw new Error('Empty AI response')
       }

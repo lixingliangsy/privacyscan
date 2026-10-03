@@ -92,6 +92,7 @@ export default function SettingsPage() {
     <>
       <Head>
         <title>BYOK Settings · {PRODUCT.name}</title>
+        <meta name="description" content={`Enterprise BYOK settings for ${PRODUCT.name} — bring your own API key.`} />
         <meta name="robots" content="noindex" />
       </Head>
       <main className="min-h-screen bg-slate-50 text-slate-900">

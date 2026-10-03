@@ -21,7 +21,7 @@ export const KB: KbEntry[] = [
   {
     id: "pricing",
     title: "PrivScan pricing",
-    keywords: ["price", "pricing", "plan", "cost", "billing", "subscription", "monthly", "yearly"],
+    keywords: ["price", "pricing", "plan", "cost", "billing", "subscription", "monthly", "yearly", "how much", "much", "free"],
     body: "Listed prices for PrivScan: $29/month and $290/year. Checkout uses the in-app checkout route. This assistant cannot change a subscription or issue a refund.",
     source: "PrivScan pricing fields",
     tags: [],

@@ -1,21 +1,26 @@
 import Head from "next/head";
-import { PRODUCT } from "../lib/product";
 import Layout from "../components/Layout";
 import FeedbackForm from "../components/FeedbackForm";
+import { useT } from "../lib/i18n/provider";
 
 export default function FeedbackPage() {
+  const { t } = useT();
   return (
     <Layout>
       <Head>
-        <title>Feedback · {PRODUCT.name}</title>
-        <meta name="description" content={`Submit feedback, suggestions, or issues to ${PRODUCT.name}`} />
+        <title>{t("feedback.open")} · PrivScan</title>
+        <meta name="description" content={t("feedback.blurb")} />
       </Head>
-      <div className="mx-auto w-full max-w-2xl px-4 py-10">
-        <h1 className="text-2xl font-bold text-slate-900">Submit feedback</h1>
-        <p className="mt-2 text-slate-600">Your feedback goes straight to our team and helps us improve {PRODUCT.name}.</p>
-        <div className="mt-6">
-          <FeedbackForm />
+
+      <div className="bg-blue-600 py-10">
+        <div className="mx-auto max-w-2xl px-4 text-center">
+          <h1 className="text-3xl font-bold text-white">{t("feedback.open")}</h1>
+          <p className="mt-2 text-blue-100">{t("feedback.blurb")}</p>
         </div>
+      </div>
+
+      <div className="mx-auto w-full max-w-2xl px-4 py-8">
+        <FeedbackForm />
       </div>
     </Layout>
   );

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy gaps AI products usually find first — PrivScan</title>
+<meta name="description" content="The disclosure gaps that show up when a product adds AI features to a notice written before those features existed.">
+<link rel="canonical" href="https://privacyscan.lxsaihub.com/blog/privacy-policy-gaps-ai-products-find-first-2026.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Privacy policy gaps AI products usually find first">
+<meta property="og:url" content="https://privacyscan.lxsaihub.com/blog/privacy-policy-gaps-ai-products-find-first-2026.html">
+<meta property="og:site_name" content="PrivScan (LX AI)">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Privacy policy gaps AI products usually find first", "description": "The disclosure gaps that show up when a product adds AI features to a notice written before those features existed.", "inLanguage": "en", "url": "https://privacyscan.lxsaihub.com/blog/privacy-policy-gaps-ai-products-find-first-2026.html", "datePublished": "2026-09-20", "dateModified": "2026-09-20", "author": {"@type": "Organization", "name": "PrivScan (LX AI)"}, "publisher": {"@type": "Organization", "name": "PrivScan (LX AI)", "url": "https://privacyscan.lxsaihub.com/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://privacyscan.lxsaihub.com/blog/privacy-policy-gaps-ai-products-find-first-2026.html"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is a prompt personal data?", "acceptedAnswer": {"@type": "Answer", "text": "It can be. If the prompt can be linked to an identified or identifiable person, it falls in scope and needs to be covered by the notice."}}, {"@type": "Question", "name": "Do we need to name our model provider?", "acceptedAnswer": {"@type": "Answer", "text": "Recipients of personal data are normally disclosed. Naming the provider, or at least the category and location, is the safer disclosure."}}, {"@type": "Question", "name": "Do we have to describe training use?", "acceptedAnswer": {"@type": "Answer", "text": "If user content is used to train or improve a model, say so plainly. Silence on that point is one of the most-read lines of any AI privacy notice."}}, {"@type": "Question", "name": "How often should the policy be revisited?", "acceptedAnswer": {"@type": "Answer", "text": "On every material change to what you collect or which providers you use — for AI products, that is usually more often than once a year."}}, {"@type": "Question", "name": "Can PrivScan write the policy for us?", "acceptedAnswer": {"@type": "Answer", "text": "No. It reports the gaps it can detect from the site and your description. Drafting the disclosure still needs a human."}}, {"@type": "Question", "name": "Is the output a compliance certificate?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is a decision-support checklist, and a reviewer still has to confirm the facts."}}]}</script>
+<style>*{box-sizing:border-box}body{margin:0;font-family:Georgia,Times,serif;color:#0f172a;line-height:1.7;background:#fff}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px 80px}.by{color:#0f766e;font-weight:700;letter-spacing:.02em;text-transform:uppercase;font-size:12px}
+h1{font-size:32px;line-height:1.25;margin:.2em 0 .4em;font-family:system-ui,Segoe UI,sans-serif}h2{font-size:22px;margin:1.6em 0 .5em}h3{font-size:17px;margin:1.1em 0 .2em}
+p{margin:.6em 0}a{color:#0f766e}ul,ol{padding-left:1.2em}
+.cta{display:inline-block;margin-top:1.4em;padding:12px 22px;border-radius:8px;background:#0f766e;color:#fff;text-decoration:none;font-weight:700}
+.card{border:1px solid #e2e8f0;border-radius:10px;padding:16px 18px;margin:12px 0}
+.meta{color:#64748b;font-size:13px}nav a{margin-right:1em}
+.tk{background:#f0fdfa;border:1px solid #ccfbf1;border-radius:10px;padding:16px 18px;margin:18px 0}
+.tk p.tkh{font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#0f766e;margin:0 0 8px}
+.tk ul{margin:0;padding-left:1.2em}
+blockquote{margin:1.1em 0;padding:.7em 1em;background:#f8fafc;border-left:4px solid #0f766e;color:#334155;font-style:italic}
+</style></head>
+<body><div class="wrap">
+<p class="by">by PrivScan (LX AI)</p>
+<p class="meta"><a href="https://privacyscan.lxsaihub.com/blog/">Blog</a> · <a href="https://privacyscan.lxsaihub.com/">Home</a></p>
+<h1>Privacy policy gaps AI products usually find first</h1>
+<p><strong><em>A privacy-policy gap</em> is any place where your published notice does not match what the product actually does with personal data. AI features create gaps quickly, because they add collection points that a template written before the feature existed never mentions.</strong></p>
+<div class="tk"><p class="tkh">Key takeaways</p><ul>
+<li>Prompts, uploads and inference logs are personal data when they can be linked to a person — and most templates are silent about them.</li>
+<li>Naming data categories beats describing them in generalities; vague disclosures are the most common finding.</li>
+<li>Third-party model providers belong in the recipient and processor disclosure, not buried in a vendor list.</li>
+</ul></div>
+<h2>Where AI products leak disclosure gaps</h2>
+<ol>
+<li><strong>Prompt and upload handling.</strong> Is the text a user types sent to a model provider? Retained? Used for training? The notice has to say.</li>
+<li><strong>Inference logging.</strong> Logs kept for debugging or abuse monitoring are still personal data.</li>
+<li><strong>New categories, old notice.</strong> Images, audio and files are newer categories than most templates list.</li>
+<li><strong>Automated decision-making.</strong> Where output materially affects a person, the logic and the consequences need describing.</li>
+<li><strong>Transfers.</strong> Model inference often happens in another jurisdiction; that is a transfer to disclose.</li>
+<li><strong>Retention for AI data.</strong> Prompts and outputs rarely share the retention period of your account data.</li>
+</ol>
+<h2>How to close them</h2>
+<p>Walk the product the way a user would and write down every place personal data enters it. Compare that list against the notice line by line. Where the notice is silent, add the category, the purpose and the retention. Where the notice is vague, name the category instead.</p>
+<h2>How PrivScan helps</h2>
+<p>PrivScan scans the site or app for the consumer-privacy gaps above — cookies, consent, trackers and data collection — and returns them as a prioritised checklist, so the gap between what the product does and what the notice says becomes a work queue rather than a guess.</p>
+<h2>Frequently asked questions</h2>
+<h3>Is a prompt personal data?</h3>
+<p>It can be. If the prompt can be linked to an identified or identifiable person, it falls in scope and needs to be covered by the notice.</p>
+<h3>Do we need to name our model provider?</h3>
+<p>Recipients of personal data are normally disclosed. Naming the provider, or at least the category and location, is the safer disclosure.</p>
+<h3>Do we have to describe training use?</h3>
+<p>If user content is used to train or improve a model, say so plainly. Silence on that point is one of the most-read lines of any AI privacy notice.</p>
+<h3>How often should the policy be revisited?</h3>
+<p>On every material change to what you collect or which providers you use — for AI products, that is usually more often than once a year.</p>
+<h3>Can PrivScan write the policy for us?</h3>
+<p>No. It reports the gaps it can detect from the site and your description. Drafting the disclosure still needs a human.</p>
+<h3>Is the output a compliance certificate?</h3>
+<p>No. It is a decision-support checklist, and a reviewer still has to confirm the facts.</p>
+<h2>References</h2><ul>
+<li><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" rel="nofollow noopener" target="_blank">EUR-Lex — Regulation (EU) 2016/679 (GDPR)</a></li>
+<li><a href="https://edpb.europa.eu/our-work-tools/general-guidance/gdpr-guidelines-recommendations-best-practices_en" rel="nofollow noopener" target="_blank">European Data Protection Board — guidelines and recommendations</a></li>
+</ul>
+<p>Try the product: <a class="cta" href="https://privacyscan.lxsaihub.com/">PrivScan</a></p>
+<p class="meta">2026-09-20 · primary sources only · no fabricated traffic metrics · decision-support only</p>
+</div>
+<section class="related" aria-label="Related articles">
+  <h2>Related articles</h2>
+  <ul>
+        <li><a href="/blog/gdpr-readiness-checklist-for-saas-2026.html">A GDPR readiness checklist for SaaS teams</a></li>
+          <li><a href="https://lxsaihub.com/blog/topic-matrix.html">Explore the full AI micro-SaaS topic matrix &#8594;</a></li>
+</ul>
+</section>
+</body></html>

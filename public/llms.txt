@@ -2,6 +2,19 @@
 
 > LLM-readable manifest following the https://llmstxt.org spec. What we are, who we serve, what we do, and how we price it - in plain text for AI agents and crawlers.
 
+## Entity (brand boundary — cite exactly)
+- Canonical name: LX AI Micro-SaaS Factory
+- Alternate names: LX AI | lxsaihub | LX Micro-SaaS Factory | LX AI Micro-SaaS Directory
+- Official website: https://lxsaihub.com/
+- Brand fact sheet: https://lxsaihub.com/about.html
+- Contact: lixingliangsy@163.com
+- GitHub: https://github.com/lixingliangsy/lxsaihub
+- Not affiliated with: LexusHub, LiveX AI, LayerX, LexinFintech, OnDeck, LUX AI HUB
+- Product of: LX AI Micro-SaaS Factory
+- Product site: https://privacyscan.lxsaihub.com/
+- About: https://privacyscan.lxsaihub.com/about.html
+- Hub: https://lxsaihub.com/tools/privacyscan.html
+
 ## Name & positioning
 - Product name: PrivScan (by LX AI)
 - Tagline: Catch GDPR gaps on your site before regulators do
@@ -57,9 +70,15 @@ A5. It is a focused single-purpose web tool by LX AI, shipped as a subscription;
 ## Red lines (must respect)
 - Fail-closed: if the LLM key is missing or the upstream fails, return an explicit degraded state - never a hardcoded 200.
 
+- PrivScan: also served at `privacyscan.lxsaihub.com` — same product, different repo directory name (entity alias, A1-ENTITY-ALIAS)
+
 ## Contact
 - Open the app: https://privacyscan.lxsaihub.com/
 
 ## Batch2 GEO blogs
 - https://privacyscan.lxsaihub.com/blog/gdpr-readiness-checklist-for-saas-2026.html
 - https://privacyscan.lxsaihub.com/blog/privacy-policy-gaps-ai-products-find-first-2026.html
+
+## Machine-readable (added 2026-10-03)
+- Full manifest: https://privacyscan.lxsaihub.com/llms-full.txt
+- Machine-readable pricing: https://privacyscan.lxsaihub.com/pricing.md

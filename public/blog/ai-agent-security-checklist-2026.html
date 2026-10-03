@@ -3,41 +3,232 @@
 <title>AI Agent Security Checklist 2026 - PrivScan by LX AI</title>
 <meta name="description" content="A practical 7-point security checklist for teams shipping AI agents in 2026, mapped to the OWASP Top 10 for LLM Applications and the EU AI Act.">
 <link rel="canonical" href="https://privacyscan.lxsaihub.com/blog/ai-agent-security-checklist-2026.html">
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="privacyscan" />
+    <meta property="og:title" content="AI Agent Security Checklist 2026 - PrivScan by LX AI" />
+    <meta property="og:description" content="A practical 7-point security checklist for teams shipping AI agents in 2026, mapped to the OWASP Top 10 for LLM Applications and the EU AI Act." />
+    <meta property="og:url" content="https://privacyscan.lxsaihub.com/blog/ai-agent-security-checklist-2026.html" />
+    <meta property="og:image" content="https://privacyscan.lxsaihub.com/og.png" />
 <meta name="robots" content="noindex,follow">
 <style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0f172a;line-height:1.7;background:#fff}
 .wrap{max-width:760px;margin:0 auto;padding:48px 20px 80px}.by{color:#6366f1;font-weight:700;letter-spacing:.02em;text-transform:uppercase;font-size:12px}
 h1{font-size:34px;line-height:1.2;margin:.2em 0 .4em}h2{font-size:23px;margin:1.8em 0 .5em;color:#1e1b4b}
 p{margin:.6em 0}a{color:#4f46e5}table{width:100%;border-collapse:collapse;margin:1.2em 0;font-size:14px}
 th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:left;vertical-align:top}th{background:#eef2ff}
-ul{padding-left:1.2em}blockquote{margin:1em 0;padding:.8em 1em;background:#f8fafc;border-left:4px solid #6366f1;color:#475569}
+ul{padding-left:1.2em}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:15px}th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left}th{background:#f1f5f9}blockquote{margin:1em 0;padding:.8em 1em;background:#f8fafc;border-left:4px solid #6366f1;color:#475569}
 .cta{display:inline-block;margin-top:1.4em;padding:12px 22px;border-radius:999px;background:#4f46e5;color:#fff;text-decoration:none;font-weight:700}
-</style></head>
+</style><script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Agent Security Checklist 2026 - PrivScan by LX AI",
+    "description": "A practical 7-point security checklist for teams shipping AI agents in 2026, mapped to the OWASP Top 10 for LLM Applications and the EU AI Act.",
+    "inLanguage": "en",
+    "url": "https://privacyscan.lxsaihub.com/blog/ai-agent-security-checklist-2026.html",
+    "author": {
+      "@type": "Organization",
+      "name": "PrivScan (LX AI)"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LX Micro-SaaS",
+      "url": "https://lxsaihub.com/"
+    },
+    "datePublished": "2026-09-16",
+    "dateModified": "2026-09-28",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://privacyscan.lxsaihub.com/blog/ai-agent-security-checklist-2026.html"
+    }
+  },
+  {
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does PrivScan check?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It scans your site for common GDPR gaps - cookie-consent granularity (Art. 7), lawful-basis statements (Art. 6), and data-retention notices (Art. 13/14) - then scores readiness from 0 to 100."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is PrivScan a replacement for a DPO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. It is decision-support that flags likely gaps; final assessments should be confirmed with a qualified privacy professional."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which regions does it cover?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "EU GDPR by default, with UK GDPR and global guidance selectable in the input."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is the readiness score calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A weighted check of consent, lawful basis, retention, and tracker transparency; the demo returns a sample 54/100 with cited articles."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export the report?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pro exports the full scan and remediation checklist; Free includes one watermarked run per day."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it scan single-page apps?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It analyzes the URL plus your described data practices; deeper SPA crawling is on the roadmap."
+        }
+      }
+    ]
+  }
+]
+</script>
+</head>
 <body><div class="wrap">
 <p class="by">by PrivScan (LX AI)</p>
+<p class="meta" style="color:#64748b;font-size:12px;margin:.2em 0 .8em">Last updated: 2026-09-16</p>
 <h1>AI Agent Security Checklist 2026</h1>
 <p>Agents that can call tools and read secrets are no longer demos - they are production systems. This checklist is the pre-deployment gate we use at LX AI before any agent touches real data. It maps to the <strong>OWASP Top 10 for LLM Applications (2025)</strong> and the <strong>EU AI Act (Regulation (EU) 2024/1689)</strong>.</p>
 
 <h2>1. Inventory every prompt and tool</h2>
-<p>List the system prompt, the tools the agent can call, and the data each tool touches. You cannot guard what you have not enumerated. (OWASP LLM06 - over-reliance; LLM01 - prompt injection surface.)</p>
+<h3>Why enumeration matters</h3>
+<p>Before you can protect anything you must know what exists. An agent that can invoke tools or read external data expands its attack surface beyond the prompt itself. If you miss a tool or a data source you cannot apply controls to it. At LX AI we treat the inventory as the foundation of the security gate; without it every later step is built on guesswork.</p>
+<h3>How we build the inventory</h3>
+<p>We start with the system prompt stored in version control. Every line that defines a capability is extracted. Next we list each tool the agent can call, noting its name, endpoint, authentication method, and the data schemas it expects and returns. For each tool we record the external services it touches – databases, APIs, file stores – and the sensitivity level of the data involved. The inventory lives in a JSON file that is reviewed in every pull request that touches the agent configuration.</p>
+<h3>Keeping the inventory current</h3>
+<p>Any change to the prompt, tool binding, or data schema triggers a CI job that validates the inventory file against the source code. If the file is out of date the pipeline fails and the developer must update it before merging. This automated check prevents drift and ensures the inventory always reflects the actual runtime capabilities.</p>
 
 <h2>2. Guard against prompt injection</h2>
-<p>Treat any external content the agent reads - emails, web pages, tool output - as untrusted. Strip instructions, require structured tool outputs, and keep a deterministic allow-list for sensitive actions. (OWASP LLM01.)</p>
+<h3>Threat model</h3>
+<p>Attackers can inject malicious instructions into any data the agent consumes – emails, web pages, tool outputs, or user‑provided files. Because the agent treats this data as part of its reasoning context, an injected instruction can steer the model toward unwanted actions such as data exfiltration or unauthorized tool calls. We treat all external input as untrusted by default.</p>
+<h3>Defensive patterns</h3>
+<p>We apply three layers of defense. First, we strip or escape any content that looks like an instruction before it reaches the model. Second, we require tools to return strictly structured data (JSON with a predefined schema) so the agent cannot interpret free‑form text as a command. Third, we maintain an deterministic allow‑list for every sensitive action; only actions on that list can be executed, and the list is enforced by a policy engine that runs before the tool call.</p>
+<p>For concrete guidance we rely on the OWASP cheat sheet: <a href="https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html</a>. The sheet outlines input validation, output encoding, and context isolation techniques that we have adapted to our agent framework.</p>
+<h3>Testing the defenses</h3>
+<p>We run a nightly test suite that feeds the agent a variety of injection payloads – from simple ignored instructions to elaborate multi‑step chains. Each test asserts that the agent does not perform any action outside the allow‑list and that the logs capture the blocked attempt. Failures block deployment until the issue is fixed.</p>
 
 <h2>3. Stop secret leakage</h2>
-<p>Secrets belong in env vars, never in prompts or logs. Scan env files and CI config for leaked keys before deploy, and rotate on hit. (OWASP LLM02 - sensitive information disclosure.)</p>
+<h3>Where secrets hide</h3>
+<p>Secrets often appear in places developers forget to check: hard‑coded in prompts, logged in debug output, stored in configuration files, or leaked through error messages. Because agents can read and write files, a secret that ends up in a log file can be exfiltrated by a subsequent tool call. We assume any secret that is not explicitly protected is at risk.</p>
+<h3>Scanning and rotation</h3>
+<p>Before every deployment we run a secret scanner over the repository, the CI environment, and the container image. The scanner looks for patterns matching API keys, private tokens, and database credentials. Any hit fails the build and alerts the team via Slack. When a secret is detected we rotate it immediately and update all references.</p>
+<p>We also follow the Secrets Management cheat sheet: <a href="https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html</a>. It provides concrete steps for storing secrets in environment variables, using secret‑management services, and avoiding logging of sensitive data.</p>
+<h3>Runtime protections</h3>
+<p>At runtime we redact any value that matches a known secret pattern from logs and error messages. The agent’s logging wrapper replaces the value with <code>[REDACTED]</code> before it is written to disk or sent to an observability backend. This ensures that even if a secret slips into a log line it never leaves the system in plain text.</p>
 
 <h2>4. Require human oversight for high-risk actions</h2>
-<p>Deletes, sends, and payments should be gated. The EU AI Act puts human oversight (Art. 14) at the center of high-risk obligations. (EU AI Act Art. 14.)</p>
+<h3>Defining high-risk</h3>
+<p>Not every tool call needs a human in the loop. We classify an action as high‑risk if it can cause irreversible change, financial loss, or data disclosure. Examples include deleting a database record, sending an email to an external address, initiating a payment, or modifying access control lists. The EU AI Act places explicit obligations on providers of high‑risk AI systems to ensure human oversight (Article 14).</p>
+<h3>Implementation patterns</h3>
+<p>We wrap each high‑risk tool in a gate that pauses execution and sends a notification to a designated reviewer. The notification includes the proposed action, the input parameters, and a link to a review interface. The reviewer can approve, reject, or request more information. Only after an explicit approval does the gate release the agent to continue.</p>
+<p>For low‑risk actions we allow automatic execution but still log the decision for audit. This split keeps the workflow fast for safe operations while ensuring that dangerous steps receive human judgment.</p>
+<h3>Reviewer experience</h3>
+<p>The review interface shows a diff‑style preview of the change, the rationale provided by the agent, and any relevant policy references. Reviewers can add comments that are stored with the audit log. If the reviewer does not respond within a configurable timeout (default 15 minutes) the action is automatically rejected and the agent receives a failure signal.</p>
 
 <h2>5. Log every run with a runId</h2>
-<p>Every agent run needs a stable runId and a ruleset version so a bad output is traceable to a specific input and policy. This is your audit trail. (EU AI Act Art. 11 - technical documentation.)</p>
+<h3>RunId design</h3>
+<p>Every agent execution receives a globally unique identifier (runId) that is generated at the start of the run. The runId is a UUID version 4 combined with a timestamp prefix to make sorting easier. We also record the version of the ruleset that governed the run. This pair (runId, rulesetVersion) lets us trace any output back to the exact input and policy that produced it.</p>
+<h3>Structured logging</h3>
+<p>We emit logs as JSON lines. Each line contains the runId, timestamp, log level, a message, and a set of key‑value fields that capture relevant context such as tool name, input parameters, and output status. Structured logs enable powerful querying in our log‑analysis platform and simplify the creation of audit trails.</p>
+<h3>Table of logged fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>runId</td>
+<td>Unique identifier for the agent run</td>
+<td>2025-09-24-3fa85f64-5717-4562-b3fc-2c963f66afa6</td>
+</tr>
+<tr>
+<td>rulesetVersion</td>
+<td>Git commit SHA of the policy file used</td>
+<td>a1b2c3d4e5f6g7h8i9j0</td>
+</tr>
+<tr>
+<td>tool</td>
+<td>Name of the tool being invoked</td>
+<td>send_email</td>
+</tr>
+<tr>
+<td>input</td>
+<td>Parameters passed to the tool (redacted if secret)</td>
+<td>{"to":"alice@example.com","subject":"Meeting"} </td>
+<tr>
+<td>outputStatus</td>
+<td>Success or error code from the tool</td>
+<td>success</td>
+</tr>
+<tr>
+<td>latencyMs</td>
+<td>Time taken for the tool call in milliseconds</td>
+<td>210</td>
+</tr>
+</tbody>
+</table>
+<h3>Using the logs for investigations</h3>
+<p>When an unexpected output appears we filter the logs by runId to replay the entire sequence of events. Because each step is recorded with its input and output we can pinpoint where the deviation occurred. The audit log also satisfies the EU AI Act requirement for technical documentation (Article 11) by providing a traceable record of the system’s behavior.</p>
 
 <h2>6. Set a fair-use cost guard</h2>
-<p>Cap token spend per run and per day. Unbounded agents turn a bug into a bill. Surface HTTP 429 when the guard trips instead of silently degrading. (OWASP LLM10 - unbounded consumption.)</p>
+<h3>Why cost matters</h3>
+<p>Agents that call language models consume tokens, and tokens translate directly into cost. A bug that causes the agent to loop or to request excessively long completions can run up a bill quickly. Unbounded consumption is listed as OWASP LLM10. A simple guard prevents a modest mistake from becoming a financial incident.</p>
+<h3>Implementation</h3>
+<p>We define two limits: a per‑run token ceiling and a daily token budget for the agent service. The per‑run limit stops a single runaway execution; the daily limit protects against cumulative drift. Both limits are checked before each model call. If the upcoming call would exceed the limit we return an HTTP 429 response to the caller and log the event.</p>
+<p>The limits are stored in the same versioned ruleset used for other policies, so they can be reviewed and adjusted through the normal pull‑request workflow. We also expose the current usage via a metrics endpoint so operators can see consumption in real time.</p>
+<h3>Response to a triggered guard</h3>
+<p>When the guard trips we do not silently degrade performance. Instead we return a clear error message that includes the limit that was exceeded and suggests the user reduce the request size or contact support. This transparency helps users understand why the agent stopped and prevents repeated attempts that would continue to hit the guard.</p>
 
 <h2>7. Keep a versioned ruleset</h2>
-<p>Policy logic should be reviewable in a pull request, not buried in a prompt. Version each ruleset so regressions are diffable. (EU AI Act Art. 9 - risk management.)</p>
+<h3>Policy as code</h3>
+<p>All security decisions – allow‑lists, cost limits, oversight rules, and logging formats – are expressed in a plain‑text ruleset file. The file lives in the same repository as the agent code and is subject to the same review, testing, and version‑control practices. By treating policy as code we make changes auditable and reversible.</p>
+<h3>Review workflow</h3>
+<p>When a developer proposes a change to the ruleset they open a pull request. The CI pipeline runs a suite of unit tests that validate the syntax and simulate typical agent flows with the new policy. If the tests pass the request goes to a security reviewer who checks that the change does not weaken any control. After approval the change is merged and the new ruleset is automatically deployed to the next agent rollout.</p>
+<h3>Benefits of versioning</h3>
+<p>Because each ruleset version is tied to a Git commit we can diff any two versions to see exactly what changed. This makes regression analysis straightforward: if a new issue appears we can compare the current ruleset to the last known‑good version and isolate the modification that introduced the problem. The practice also satisfies the EU AI Act requirement for risk management (Article 9) by providing a clear, reviewable record of how risks are addressed.</p>
 
+<h2>What this is NOT</h2>
+<p>This checklist is a practical guide, not a guarantee of security. Following every item does not make an agent immune to all threats. New attack techniques emerge, and human error can still cause lapses. The list does not promise 100 % protection, nor does it claim that you will never miss a step. Treat it as a baseline that you must adapt and extend as your system and threat model evolve.</p>
+
+<h2>References</h2>
+<ul>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html</a></li>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html</a></li>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html</a></li>
+<li><a href="https://docs.agents-squads.com/guides/config-files">https://docs.agents-squads.com/guides/config-files</a></li>
+</ul>
+<h2>Frequently asked questions</h2>
+<h3 style="font-size:18px;margin:1.4em 0 .3em;color:#0f172a">What does PrivScan check?</h3>
+<p>It scans your site for common GDPR gaps - cookie-consent granularity (Art. 7), lawful-basis statements (Art. 6), and data-retention notices (Art. 13/14) - then scores readiness from 0 to 100.</p>
+<h3 style="font-size:18px;margin:1.4em 0 .3em;color:#0f172a">Is PrivScan a replacement for a DPO?</h3>
+<p>No. It is decision-support that flags likely gaps; final assessments should be confirmed with a qualified privacy professional.</p>
+<h3 style="font-size:18px;margin:1.4em 0 .3em;color:#0f172a">Which regions does it cover?</h3>
+<p>EU GDPR by default, with UK GDPR and global guidance selectable in the input.</p>
+<h3 style="font-size:18px;margin:1.4em 0 .3em;color:#0f172a">How is the readiness score calculated?</h3>
+<p>A weighted check of consent, lawful basis, retention, and tracker transparency; the demo returns a sample 54/100 with cited articles.</p>
+<h3 style="font-size:18px;margin:1.4em 0 .3em;color:#0f172a">Can I export the report?</h3>
+<p>Pro exports the full scan and remediation checklist; Free includes one watermarked run per day.</p>
+<h3 style="font-size:18px;margin:1.4em 0 .3em;color:#0f172a">Does it scan single-page apps?</h3>
+<p>It analyzes the URL plus your described data practices; deeper SPA crawling is on the roadmap.</p>
 <h2>References</h2>
 <ul>
 <li>OWASP Top 10 for LLM Applications (2025) - owasp.org/www-project-top-10-for-large-language-model-applications/</li>
@@ -45,4 +236,13 @@ ul{padding-left:1.2em}blockquote{margin:1em 0;padding:.8em 1em;background:#f8faf
 <li>NIST AI Risk Management Framework (AI RMF 1.0) - nist.gov/itl/ai-risk-management-framework</li>
 </ul>
 <p>Want a fast, self-serve read on your own agent? <a class="cta" href="https://privacyscan.lxsaihub.com/">Try PrivScan</a></p>
+<section class="related" style="margin-top:3rem;border-top:1px solid #e2e8f0;padding-top:1.5rem">
+  <h2>Related reads</h2>
+  <ul>
+    <li><a href="/blog/agent-security-tools-compared.html">Agent Security Tools Compared: PrivScan vs AgentRedTeam vs PyRIT vs Garak</a></li>
+    <li><a href="/blog/gdpr-readiness-checklist-for-saas-2026.html">A GDPR readiness checklist for SaaS teams — PrivScan</a></li>
+    <li><a href="/blog/privacy-policy-gaps-ai-products-find-first-2026.html">Privacy policy gaps AI products usually find first — PrivScan</a></li>
+    <li><a href="https://lxsaihub.com/blog/topic-matrix.html">The LX AI Micro-SaaS Topic Matrix</a></li>
+  </ul>
+</section>
 </div></body></html>

@@ -32,6 +32,29 @@ export const PRODUCT = {
   resultLabel: "Scan Results",
   ctaLabel: "Scan Now",
   definitionLead: `PrivScan is an automated website and app privacy scanner that checks cookie banners, consent flows, trackers, and data-collection notices against GDPR (Regulation (EU) 2016/679) and returns a prioritized remediation checklist with article references.`,
+  geoLongTail: [
+    "what is PrivScan",
+    "how does PrivScan work",
+    "how much does PrivScan cost",
+    "is PrivScan free",
+    "PrivScan vs doing it manually",
+  ],
+  geoQuickAnswer: [
+    "Scan your site for common GDPR compliance gaps",
+    "Review cookie, consent, and data-collection practices",
+    "Get a privacy readiness score with article references",
+    "Receive a remediation checklist",
+    "Pricing starts at $0 (Free).",
+  ],
+  geoComparison: {
+    vsManual: [
+      ["Speed", "Minutes per run", "Hours to days"],
+      ["Consistency", "Same ruleset every run", "Varies by person"],
+      ["Output", "Structured, exportable result", "Free-form"],
+      ["Best for", "First-pass decision-support", "Final sign-off"],
+    ],
+    whenNotToUse: "Use qualified human review instead — it is decision-support that flags likely gaps; final assessments should be confirmed with a qualified privacy professional.",
+  },
   geoFaq: [
     { q: "What does PrivScan check?", a: "It scans your site for common GDPR gaps - cookie-consent granularity (Art. 7), lawful-basis statements (Art. 6), and data-retention notices (Art. 13/14) - then scores readiness from 0 to 100." },
     { q: "Is PrivScan a replacement for a DPO?", a: "No. It is decision-support that flags likely gaps; final assessments should be confirmed with a qualified privacy professional." },
@@ -39,7 +62,10 @@ export const PRODUCT = {
     { q: "How is the readiness score calculated?", a: "A weighted check of consent, lawful basis, retention, and tracker transparency; the demo returns a sample 54/100 with cited articles." },
     { q: "Can I export the report?", a: "Pro exports the full scan and remediation checklist; Free includes one watermarked run per day." },
     { q: "Does it scan single-page apps?", a: "It analyzes the URL plus your described data practices; deeper SPA crawling is on the roadmap." }
-  ],
+  ,
+  { q: "Which countries and regions can I use PrivScan in?", a: "As a cloud web app, PrivScan is reachable from any country with internet access; there is no region lock by default. Payment availability via our merchant of record (Waffo Pancake) may vary by processor and region." },
+  { q: "Is PrivScan GDPR and privacy compliant?", a: "Your inputs are used only to generate your output and are never sold. Retention, sub-processors, and your rights are described on our Privacy page; Enterprise plans can include a DPA and NDA on request." },
+  { q: "What languages does PrivScan support?", a: "The interface and generated results are in English. You can paste input in other major languages wherever the underlying model understands them." }],
 
   features: [
   "Scan your site for common GDPR compliance gaps",
